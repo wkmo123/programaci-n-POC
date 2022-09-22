@@ -29,7 +29,7 @@ public class control extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -58,17 +58,31 @@ public class control extends HttpServlet {
         //processRequest(request, response);
         String n = request.getParameter("txt_nombres");
         String a = request.getParameter("txt_apellidos");
+        String c = request.getParameter("txt_correo");
+        String t = request.getParameter("txt_numero");
+
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>respuesta 1</title>");
+            out.println("<style>");
+            out.println("body{");
+            out.println("background-color: #023047;");
+            out.println("}");
+            out.println("h1{");
+            out.println("color: #fff;");
+            out.println("}");
+            out.println("</style>");
             out.println("</head>");
             out.println("<body>");
+            out.println("<img src=\"./img/bienvenida.png\" width=\"200\" height=\"200\">");
             out.println("<h1>Esta es una respuesta desde el servlet" + request.getContextPath() + "</h1>");
-            out.println("<h1>El domicilio llego: " + n + " " + a + "</h1>");
+            out.println("<h1>Bienvenido: " + n + " " + a + "</h1>");
+            out.println("<h1>Su correo es:: " + c + "</h1>");
+            out.println("<h1>Su telefonno es: " + t +"</h1>");
             out.println("</body>");
             out.println("</html>");
         }
